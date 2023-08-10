@@ -14,7 +14,6 @@ public class MeasurementDTO {
     @Column(name = "raining")
     @NotNull
     private Boolean raining;
-
     public Double getValue() {
         return value;
     }
