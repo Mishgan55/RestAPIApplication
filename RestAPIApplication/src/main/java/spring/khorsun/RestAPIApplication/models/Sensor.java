@@ -6,7 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 @Entity
 @Table(name = "sensor")
@@ -16,7 +18,8 @@ public class Sensor implements Serializable {
     @Column(name = "id")
     private int id;
     @Column(name = "name")
-    @NotNull
+    @NotEmpty(message = "name should not be empty")
+    @Size(min = 2,max = 100, message = "Name's characters should be between 2 and 100")
     private String name;
 
 

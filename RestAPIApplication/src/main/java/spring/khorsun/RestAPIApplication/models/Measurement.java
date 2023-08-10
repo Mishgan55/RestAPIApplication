@@ -19,7 +19,7 @@ public class Measurement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "value")
     @NotNull
     @Min(-100)
@@ -52,7 +52,7 @@ public class Measurement {
         this.value = value;
     }
 
-    public Boolean getRaining() {
+    public Boolean isRaining() {
         return raining;
     }
 

@@ -1,11 +1,11 @@
 package spring.khorsun.RestAPIApplication.DTO;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class SensorDTO {
-    @Column(name = "name")
-    @NotNull
+    @NotEmpty(message = "name should not be empty")
+    @Size(min = 2,max = 100, message = "Name's characters should be between 2 and 100")
     private String name;
 
     public String getName() {
