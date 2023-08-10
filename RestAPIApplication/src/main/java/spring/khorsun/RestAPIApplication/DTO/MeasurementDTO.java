@@ -14,6 +14,17 @@ public class MeasurementDTO {
     @Column(name = "raining")
     @NotNull
     private Boolean raining;
+    @NotNull
+    private SensorDTO sensorDTO;
+
+    public SensorDTO getSensorDTO() {
+        return sensorDTO;
+    }
+
+    public void setSensorDTO(SensorDTO sensorDTO) {
+        this.sensorDTO = sensorDTO;
+    }
+
     public Double getValue() {
         return value;
     }
