@@ -35,8 +35,6 @@ public class Measurement {
     @JoinColumn(referencedColumnName = "name", name = "sensor")
     private Sensor sensor;
 
-    public Measurement() {
-    }
 
     public int getId() {
         return id;
