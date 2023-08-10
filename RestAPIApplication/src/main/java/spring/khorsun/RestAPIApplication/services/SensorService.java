@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import spring.khorsun.RestAPIApplication.models.Sensor;
 import spring.khorsun.RestAPIApplication.repositories.SensorRepository;
 
+import java.util.Optional;
+
 @Service
 public class SensorService {
 
@@ -12,6 +14,10 @@ public class SensorService {
     @Autowired
     public SensorService(SensorRepository sensorRepository) {
         this.sensorRepository = sensorRepository;
+    }
+
+    public Optional<Sensor> findSensorByName(String string){
+         return sensorRepository.findSensorByName(string);
     }
 
     public void save(Sensor sensor){
