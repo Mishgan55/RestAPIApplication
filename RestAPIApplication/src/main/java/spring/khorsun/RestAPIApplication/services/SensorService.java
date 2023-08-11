@@ -18,8 +18,8 @@ public class SensorService {
         this.sensorRepository = sensorRepository;
     }
 
-    public Optional<Sensor> findSensorByName(String string){
-         return sensorRepository.findSensorByName(string);
+    public Optional<Sensor> findSensorByName(String name){
+         return sensorRepository.findByName(name);
     }
     @Transactional
     public void save(Sensor sensor){

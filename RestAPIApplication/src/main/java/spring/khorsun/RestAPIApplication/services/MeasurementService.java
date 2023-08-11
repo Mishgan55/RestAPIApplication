@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.khorsun.RestAPIApplication.models.Measurement;
+import spring.khorsun.RestAPIApplication.models.Sensor;
 import spring.khorsun.RestAPIApplication.repositories.MeasurementRepository;
+import spring.khorsun.RestAPIApplication.utils.ErrorException;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -31,7 +34,10 @@ public class MeasurementService {
     }
 
     private void enrichMeasurement(Measurement measurement){
-        measurement.setSensor(sensorService.findSensorByName(measurement.getSensor().getName()).get());
+        Optional<Sensor> sensorByName = sensorService.findSensorByName(measurement.getSensor().getName());
+        if (sensorByName.isEmpty())
+            throw new ErrorException("Don't find sensor");
+        measurement.setSensor(sensorByName.get());
         measurement.setMeasurementDateTime(LocalDateTime.now());
     }
 }

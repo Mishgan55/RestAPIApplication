@@ -1,5 +1,6 @@
 package spring.khorsun.RestAPIApplication.DTO;
 
+
 import javax.persistence.Column;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -14,15 +15,16 @@ public class MeasurementDTO {
     @Column(name = "raining")
     @NotNull
     private Boolean raining;
-    @NotNull
-    private SensorDTO sensorDTO;
 
-    public SensorDTO getSensorDTO() {
-        return sensorDTO;
+    @NotNull
+    private SensorDTO sensor;
+
+    public SensorDTO getSensor() {
+        return sensor;
     }
 
-    public void setSensorDTO(SensorDTO sensorDTO) {
-        this.sensorDTO = sensorDTO;
+    public void setSensor(SensorDTO sensor) {
+        this.sensor = sensor;
     }
 
     public Double getValue() {
