@@ -45,6 +45,11 @@ public class MeasurementController {
 
     }
 
+    @GetMapping("/rainyDaysCount")
+    public Long countRainyDays(){
+        return measurementService.showAll().stream().filter(Measurement::isRaining).count();
+    }
+
     @PostMapping("/add")
     public ResponseEntity<HttpStatus> create(@RequestBody @Valid MeasurementDTO measurementDTO,
                                              BindingResult bindingResult){
